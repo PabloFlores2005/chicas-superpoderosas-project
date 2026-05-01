@@ -10,6 +10,11 @@ class ProductService {
     }
     return await productRepository.create(data);
   }
+
+
+  async getAllProducts(){
+    return await productRepository.findAll();
+  }
 }
 
 export default new ProductService();
