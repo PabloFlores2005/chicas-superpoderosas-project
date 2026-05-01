@@ -8,6 +8,10 @@ class ProductRepository {
   async findAll(){
     return await Product.findAll();
   }
+
+  async update(id, productData) {
+    return await Product.update(productData, { where: { id } });
+  }
 }
 
 export default new ProductRepository();
