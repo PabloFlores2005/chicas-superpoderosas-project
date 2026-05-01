@@ -15,6 +15,13 @@ class ProductService {
   async getAllProducts(){
     return await productRepository.findAll();
   }
+
+  async updateProduct(id, data) {
+    if (data.price < 0) {
+      throw new Error('Price cannot be negative');
+    }
+    return await productRepository.update(id, data);
+  }
 }
 
 export default new ProductService();
